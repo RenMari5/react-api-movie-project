@@ -1,0 +1,1 @@
+// this component for when user clicks more on movielist to see full details for a movie on a separate page
