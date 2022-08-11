@@ -2,7 +2,7 @@
 
 export interface MoviesList {
   id: number;
-  originalTitle: string;
+  title: string;
   posterPath: string;
   overview: string;
   releaseDate: string;
