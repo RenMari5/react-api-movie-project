@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import fetchMovies from '../services/movie.service';
 import { Movie } from '../types/movies';
 import { MovieContext } from './MovieContext';
 
@@ -11,7 +12,11 @@ export function MovieContextProvider ({ children }: Props) {
     const [moviesToWatch, setMoviesToWatch] = useState<Movie[]>([]);
     const [moviesFavorited, setMoviesFavorited] = useState<Movie[]>([]);
 
-  
+    useEffect(() => {
+        fetchMovies().then((response) => setMovies(response.data.results));
+        console.log(movies);
+      }, [])
+
     function addMovieToWatchList(movie: Movie) {
         setMoviesToWatch([movie, ...moviesToWatch]);
     }
