@@ -1,8 +1,8 @@
-export interface MoviesList {
-  id: number;
+export interface Movie {
+  id?: number;
   title: string;
   posterPath: string;
-  overview: string;
-  releaseDate: string;
-  popularity: number;
+  overview?: string;
+  releaseDate?: string;
+  popularity?: number;
 }
