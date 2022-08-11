@@ -1,14 +1,16 @@
 //search bar w three option of criteria to search by
 
 import { useState } from "react";
-import { MoviesList } from "./MovieList";
+import { Movie } from "../types/movies";
 
 function SearchForm() {
-  const [movieList, setMovieList] = useState<MoviesList[]>([]);
+  const [movieList, setMovieList] = useState<Movie[]>([]);
 
   return (
-    
-  )
+    <div>
+      <form></form>
+    </div>
+  );
 }
 
 export default SearchForm;
