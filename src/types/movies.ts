@@ -1,10 +1,10 @@
-export type Movie {
+export type Movie = {
   id?: number;
   title: string;
   posterPath?: string;
   overview?: string;
   releaseDate?: string;
   popularity?: number;
-  isOnWatchList: boolean = false;
-  isOnFavList: boolean = false;
+  isOnWatchList?: boolean;
+  isFavorited?: boolean;
 }

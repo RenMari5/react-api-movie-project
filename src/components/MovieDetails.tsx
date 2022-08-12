@@ -16,11 +16,6 @@ export default function MovieDetail () {
     const { movies, moviesToWatch, moviesFavorited, isOnWatchList } = useContext(MovieContext);
     const detailedMovie: Movie | undefined = movies.find((movie) => movie.id === id);
 
-    function isOnWatchList () {
-
-    }
-    // function isOnFavList? // have a toggle button that darkens/lightens based on this functions
-
     return (
     <div className="MovieRoute">
         <p>{detailedMovie?.title}</p>
