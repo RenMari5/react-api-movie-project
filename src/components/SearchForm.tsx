@@ -1,10 +1,10 @@
 //search bar w three option of criteria to search by
-
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import { Movie } from "../types/movies";
 
 function SearchForm() {
   const [movieList, setMovieList] = useState<Movie[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -13,11 +13,11 @@ function SearchForm() {
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    return setMovieList({ title: e.target.value });
+    return setSearchTerm(e.target.value);
   }
 
   function clearSearchValues() {
-    setMovieList({ title: "" });
+    setSearchTerm("");
   }
 
   return (
@@ -29,11 +29,11 @@ function SearchForm() {
             type="text"
             name="search"
             placeholder="Enter Movie Title"
-            value={movieList.title}
+            value={searchTerm}
             onChange={handleChange}
           ></input>
         </label>
-        <input type="submit" name="submit"></input>
+        <input type="submit">Submit</input>
       </form>
     </div>
   );
