@@ -13,11 +13,11 @@ export default function MovieDetail () {
     // <Route path="/details/:id" element={<MovieDetail movie={movie.id} />} /> or something like it
 
     const { id } = useParams<RouteParams>();
-    const { movies, moviesToWatch, moviesFavorited } = useContext(MovieContext);
+    const { movies, moviesToWatch, moviesFavorited, isOnWatchList } = useContext(MovieContext);
     const detailedMovie: Movie | undefined = movies.find((movie) => movie.id === id);
 
     function isOnWatchList () {
-        
+
     }
     // function isOnFavList? // have a toggle button that darkens/lightens based on this functions
 
