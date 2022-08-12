@@ -10,9 +10,7 @@ function SearchForm() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/discover/movie?api_key=a756cffa90dee1edf6db15c8b94e2973&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
-    )
+    fetch("")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -40,20 +38,22 @@ function SearchForm() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Search Movies:
-          <input
-            type="text"
-            name="search"
-            placeholder="Enter Movie Title"
-            value={searchTerm}
-            onChange={handleChange}
-          ></input>
-        </label>
-        <input type="submit">Submit</input>
-      </form>
+    <div className="wrapper">
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Search Movies:
+            <input
+              type="text"
+              name="search"
+              placeholder="Enter Movie Title"
+              value={searchTerm}
+              onChange={handleChange}
+            ></input>
+          </label>
+          <input type="submit">Submit</input>
+        </form>
+      </div>
     </div>
   );
 }
