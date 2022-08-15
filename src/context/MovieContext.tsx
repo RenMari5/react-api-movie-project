@@ -5,8 +5,8 @@ interface MovieContextModel {
     movies: Movie[];
     addMovieToWatchList: (movie: Movie) => void;
     addMovieToFavList: (movie: Movie) => void;
-    removeMovieFromWatchList: (id: number) => void;
-    removeMovieFromFavList: (id: number) => void;
+    removeMovieFromWatchList: (id: number, movie: Movie) => void;
+    removeMovieFromFavList: (id: number, movie: Movie) => void;
 
 }
 
