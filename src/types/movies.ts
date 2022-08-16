@@ -1,10 +1,15 @@
 export type Movie = {
   id: number;
   title: string;
-  posterPath: string;
+  poster_path: string;
   overview: string;
-  releaseDate: string;
+  release_date: string;
   popularity: number;
-  isOnWatchList?: boolean;
-  isFavorited?: boolean;
+  // isOnWatchList?: boolean;
+  // isFavorited?: boolean;
+  //make underscores where necessary
+};
+
+export type MovieResults = {
+  results: Movie[];
 };
