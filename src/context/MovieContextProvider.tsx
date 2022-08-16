@@ -8,16 +8,8 @@ interface Props {
 }
 
 export function MovieContextProvider({ children }: Props) {
-  const [movies, setMovies] = useState<Movie[]>([]);
   const [moviesToWatch, setMoviesToWatch] = useState<Movie[]>([]);
   const [moviesFavorited, setMoviesFavorited] = useState<Movie[]>([]);
-
-  useEffect(() => {
-    fetchMovies().then((movies) => {
-      console.log(movies);
-      setMovies(movies);
-    });
-  }, []);
 
   function addMovieToWatchList(movie: Movie) {
     setMoviesToWatch([movie, ...moviesToWatch]);
