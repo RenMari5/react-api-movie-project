@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import fetchMovies from "../services/movie.service";
+import { useState } from "react";
 import { Movie } from "../types/movies";
 import { MovieContext } from "./MovieContext";
 
@@ -13,34 +12,31 @@ export function MovieContextProvider({ children }: Props) {
 
   function addMovieToWatchList(movie: Movie) {
     setMoviesToWatch([movie, ...moviesToWatch]);
-    // movie.isOnWatchList = true;
   }
 
   function addMovieToFavList(movie: Movie) {
     setMoviesToWatch([movie, ...moviesFavorited]);
-    // movie.isFavorited = true;
   }
 
-  function removeMovieFromWatchList(id: number, movie: Movie) {
+  function removeMovieFromWatchList(id: number) {
     const index = moviesToWatch.findIndex((movie: Movie) => movie.id === id);
     let newArray = moviesToWatch.slice(0);
     newArray.splice(index, 1);
     setMoviesToWatch(newArray);
-    // movie.isOnWatchList = false;
   }
 
-  function removeMovieFromFavList(id: number, movie: Movie) {
+  function removeMovieFromFavList(id: number) {
     const index = moviesFavorited.findIndex((movie) => movie.id === id);
     let newArray = moviesFavorited.slice(0);
     newArray.splice(index, 1);
     setMoviesFavorited(newArray);
-    // movie.isFavorited = false;
   }
 
   return (
     <MovieContext.Provider
       value={{
-        // movies,
+        moviesFavorited,
+        moviesToWatch,
         addMovieToWatchList,
         addMovieToFavList,
         removeMovieFromWatchList,
