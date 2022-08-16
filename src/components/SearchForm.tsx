@@ -26,6 +26,16 @@ function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    return movieList.filter((movie) => {
+      return searchParam.some((newMovie) => {
+        return (
+          movie[newMovie]
+            .toString()
+            .toLowerCase()
+            .indexOf(searchTerm.toLowerCase()) > -1
+        );
+      });
+    });
     clearSearchValues();
   }
 
@@ -39,13 +49,14 @@ function SearchForm() {
 
   return (
     <div className="wrapper">
-      <div>
+      <div className="search-wrapper">
         <form onSubmit={handleSubmit}>
           <label>
             Search Movies:
             <input
-              type="text"
-              name="search"
+              type="search"
+              name="search-form"
+              className="search-input"
               placeholder="Enter Movie Title"
               value={searchTerm}
               onChange={handleChange}
@@ -54,6 +65,20 @@ function SearchForm() {
           <input type="submit">Submit</input>
         </form>
       </div>
+      <ul className="poster-grid">
+        {movieList.map((movie) => (
+          <li>
+            <article className="poster" key={movie.title}>
+              <div className="poster-image">
+                <img src={movie.poster_path} alt={movie.title} />
+              </div>
+              <div className="movie">
+                <h2 className="movie-title">{movie.title}</h2>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
