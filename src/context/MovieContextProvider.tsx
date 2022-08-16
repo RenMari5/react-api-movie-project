@@ -13,12 +13,12 @@ export function MovieContextProvider({ children }: Props) {
 
   function addMovieToWatchList(movie: Movie) {
     setMoviesToWatch([movie, ...moviesToWatch]);
-    movie.isOnWatchList = true;
+    // movie.isOnWatchList = true;
   }
 
   function addMovieToFavList(movie: Movie) {
     setMoviesToWatch([movie, ...moviesFavorited]);
-    movie.isFavorited = true;
+    // movie.isFavorited = true;
   }
 
   function removeMovieFromWatchList(id: number, movie: Movie) {
@@ -26,7 +26,7 @@ export function MovieContextProvider({ children }: Props) {
     let newArray = moviesToWatch.slice(0);
     newArray.splice(index, 1);
     setMoviesToWatch(newArray);
-    movie.isOnWatchList = false;
+    // movie.isOnWatchList = false;
   }
 
   function removeMovieFromFavList(id: number, movie: Movie) {
@@ -34,13 +34,13 @@ export function MovieContextProvider({ children }: Props) {
     let newArray = moviesFavorited.slice(0);
     newArray.splice(index, 1);
     setMoviesFavorited(newArray);
-    movie.isFavorited = false;
+    // movie.isFavorited = false;
   }
 
   return (
     <MovieContext.Provider
       value={{
-        movies,
+        // movies,
         addMovieToWatchList,
         addMovieToFavList,
         removeMovieFromWatchList,
