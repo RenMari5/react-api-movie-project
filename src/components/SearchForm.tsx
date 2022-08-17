@@ -1,13 +1,14 @@
 //search bar w three option of criteria to search by
 import React, { useEffect, useState } from "react";
-import { Movie } from "../types/movies";
+import { MovieResults } from "../types/movies";
 
 function SearchForm() {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchParam] = useState(["title"]);
+  const [searchParam] = useState([]);
+  const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
 
   useEffect(() => {
     fetch("")
@@ -26,8 +27,8 @@ function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    return movieList.filter((movie: any) => {
-      return searchParam.some((newMovie: string | number) => {
+    return movieList.filter((movie: MovieResults[]) => {
+      return searchParam.some((newMovie: any) => {
         return (
           movie[newMovie]
             .toString()
@@ -59,7 +60,22 @@ function SearchForm() {
               placeholder="Enter Movie Title"
               value={searchTerm}
               onChange={handleChange}
-            ></input>
+            />
+            <select
+              onChange={(e) => {
+                setFilterGenreParam(e.target.value);
+              }}
+              className="genre-select"
+              aria-label="Filter Movies by Genre"
+            >
+              <option value="All">Filter by Genre</option>
+              <option value="Romanic Comedy">Romantic Comedy</option>
+              <option value="Horror">Horror</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Action">Action</option>
+              <option value="Drama">Drama<option>
+              <option value="Indie">Indie</option>
+            </select>
           </label>
           <input type="submit">Submit</input>
         </form>
@@ -67,7 +83,7 @@ function SearchForm() {
       <ul className="poster-grid">
         {movieList.map((movie: any) => (
           <li>
-            <article className="poster" key={movie.title}>
+            <article className="poster" key={movie.id}>
               <div className="poster-image">
                 <img src={movie.poster_path} alt={movie.title} />
               </div>
