@@ -1,6 +1,5 @@
 //search bar w three option of criteria to search by
 import React, { useEffect, useState } from "react";
-import { json } from "stream/consumers";
 import { Movie } from "../types/movies";
 
 function SearchForm() {
@@ -26,8 +25,8 @@ function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    return movieList.filter((movie) => {
-      return searchParam.some((newMovie) => {
+    return movieList.filter((movie: any) => {
+      return searchParam.some((newMovie: string | number) => {
         return (
           movie[newMovie]
             .toString()
@@ -36,7 +35,6 @@ function SearchForm() {
         );
       });
     });
-    clearSearchValues();
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -66,7 +64,7 @@ function SearchForm() {
         </form>
       </div>
       <ul className="poster-grid">
-        {movieList.map((movie) => (
+        {movieList.map((movie: any) => (
           <li>
             <article className="poster" key={movie.title}>
               <div className="poster-image">
