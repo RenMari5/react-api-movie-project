@@ -21,7 +21,8 @@ export default function MovieDetail () {
         setMovies(movies);
       });
     }, []);
-
+    
+    if (movie !== undefined) {
     return (
     <div className="MovieRoute">
         <p>{movie?.title}</p>
@@ -37,7 +38,13 @@ export default function MovieDetail () {
             <button onClick={() => removeMovieFromWatchList(id)}>favorited</button>} 
             </div>
     )
+        }
 
     function useParams<T>(): { id: any; } {
         throw new Error("Function not implemented.");
     }
+}
+
+function useParams<T>(): { id: any; } {
+    throw new Error("Function not implemented.");
+}
