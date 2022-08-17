@@ -15,17 +15,11 @@ export default function MovieOptions() {
     });
   }, []);
 
-  return 
-    <div>//map--where we are fetching all the data
-
-        {/* {movies.map((movie) => {
-              return ( 
-              <MovieListItem 
-                  key={movie.id} 
-                  movie={movie}
-              />
-              )
-          })}
-          // auriel this is similar to code I've used before - do we want to use this? love, ken */}
-    </div>;
+  return;
+  <div>
+    //map--where we are fetching all the data
+    {movies.map((item, index) => (
+      <MovieListItem item={item} key={index} />
+    ))}
+  </div>;
 }

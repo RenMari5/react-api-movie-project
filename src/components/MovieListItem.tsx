@@ -6,35 +6,48 @@ import { MovieContext } from "../context/MovieContext";
 import { Movie } from "../types/movies";
 import MovieOptions from "./MovieList";
 
+interface Props {
+  item: Movie;
+}
 
-// export const movieListing: Movie[] = [
-//   {
-//     title: "",
-//     posterPath: "",
-//   },
-// ];
-
-export default function MovieListItem(movie: Movie) { //i did change this component name to match the file name because I was getting confused with the difference, was can change it back tho if preferred! -ken
-  const { moviesToWatch, moviesFavorited, addMovieToFavList, addMovieToWatchList, removeMovieFromFavList, removeMovieFromWatchList } = useContext(MovieContext);
+const MovieListItem = ({ item }: Props) => {
+  //i did change this component name to match the file name because I was getting confused with the difference, was can change it back tho if preferred! -ken
+  const navigate = useNavigate();
+  const {
+    moviesToWatch,
+    moviesFavorited,
+    addMovieToFavList,
+    addMovieToWatchList,
+    removeMovieFromFavList,
+    removeMovieFromWatchList,
+  } = useContext(MovieContext);
 
   return (
     <div>
-      <p>{movie.title}</p>
-      <p>{movie.poster_path}</p>
+      <p>{item.title}</p>
+      <p>{item.poster_path}</p>
       <button
         onClick={() => {
-          MovieOptions;
+          navigate(``);
         }}
       >
         Show More
       </button>
-      {moviesFavorited.find((arrayItem) => arrayItem.id === movie.id) ? 
-            <button onClick={() => addMovieToFavList(movie)}>favorited</button> :
-            <button onClick={() => removeMovieFromFavList(movie.id)}>favorited</button>}
-      {moviesToWatch.find((arrayItem) => arrayItem.id === movie.id) ? 
-            <button onClick={() => addMovieToWatchList(movie)}>favorited</button> :
-            <button onClick={() => removeMovieFromWatchList(movie.id)}>favorited</button>}
-            {/* lines 31-36 are the buttons for the watch and favorite list - ternary operator should judge if a movie is on the list or not and change button function accordingly */}
+      {moviesFavorited.find((arrayItem) => arrayItem.id === movie.id) ? (
+        <button onClick={() => addMovieToFavList(movie)}>favorited</button>
+      ) : (
+        <button onClick={() => removeMovieFromFavList(movie.id)}>
+          favorited
+        </button>
+      )}
+      {moviesToWatch.find((arrayItem) => arrayItem.id === movie.id) ? (
+        <button onClick={() => addMovieToWatchList(movie)}>favorited</button>
+      ) : (
+        <button onClick={() => removeMovieFromWatchList(movie.id)}>
+          favorited
+        </button>
+      )}
+      {/* lines 31-36 are the buttons for the watch and favorite list - ternary operator should judge if a movie is on the list or not and change button function accordingly */}
     </div>
   );
-}
+};
