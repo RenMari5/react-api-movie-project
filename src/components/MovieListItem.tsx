@@ -28,22 +28,22 @@ const MovieListItem = ({ item }: Props) => {
       <p>{item.poster_path}</p>
       <button
         onClick={() => {
-          navigate(``);
+          // navigate(``);
         }}
       >
         Show More
       </button>
-      {moviesFavorited.find((arrayItem) => arrayItem.id === movie.id) ? (
-        <button onClick={() => addMovieToFavList(movie)}>favorited</button>
+      {moviesFavorited.find((arrayItem) => arrayItem.id === item.id) ? (
+        <button onClick={() => addMovieToFavList(item)}>favorited</button>
       ) : (
-        <button onClick={() => removeMovieFromFavList(movie.id)}>
+        <button onClick={() => removeMovieFromFavList(item.id)}>
           favorited
         </button>
       )}
-      {moviesToWatch.find((arrayItem) => arrayItem.id === movie.id) ? (
-        <button onClick={() => addMovieToWatchList(movie)}>favorited</button>
+      {moviesToWatch.find((arrayItem) => arrayItem.id === item.id) ? (
+        <button onClick={() => addMovieToWatchList(item)}>favorited</button>
       ) : (
-        <button onClick={() => removeMovieFromWatchList(movie.id)}>
+        <button onClick={() => removeMovieFromWatchList(item.id)}>
           favorited
         </button>
       )}
@@ -51,3 +51,6 @@ const MovieListItem = ({ item }: Props) => {
     </div>
   );
 };
+function useNavigate() {
+  throw new Error("Function not implemented.");
+}
