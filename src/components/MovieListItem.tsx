@@ -15,7 +15,7 @@ export default function movieListing(movie: Movie) {
   return (
     <div>
       <p>{movie.title}</p>
-      <p>{movie.posterPath}</p>
+      <p>{movie.poster_path}</p>
       <button
         onClick={() => {
           MovieOptions;

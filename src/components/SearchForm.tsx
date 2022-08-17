@@ -7,6 +7,7 @@ function SearchForm() {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [searchParam] = useState(["title"]);
 
   useEffect(() => {
     fetch("")
