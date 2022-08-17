@@ -10,7 +10,7 @@ interface Props {
   item: Movie;
 }
 
-const MovieListItem = ({ item }: Props) => {
+export const MovieListItem = ({ item }: Props) => {
   //i did change this component name to match the file name because I was getting confused with the difference, was can change it back tho if preferred! -ken
   const navigate = useNavigate();
   const {
