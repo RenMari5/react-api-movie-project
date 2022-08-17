@@ -44,7 +44,3 @@ export default function MovieDetail () {
         throw new Error("Function not implemented.");
     }
 }
-
-function useParams<T>(): { id: any; } {
-    throw new Error("Function not implemented.");
-}

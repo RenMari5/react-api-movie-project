@@ -4,7 +4,7 @@ import fetchMovies from "../services/movie.service";
 import { MovieContext } from "../context/MovieContext";
 import { MovieContextProvider } from "../context/MovieContextProvider";
 import { Movie } from "../types/movies";
-import MovieListItem from "./MovieListItem";
+import { MovieListItem } from "./MovieListItem";
 // import MovieListItem from "./MovieListItem";
 
 export default function MovieOptions() {
