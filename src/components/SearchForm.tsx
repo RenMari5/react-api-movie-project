@@ -62,7 +62,7 @@ function SearchForm() {
               onChange={handleChange}
             />
             <select
-              onChange={(e) => {
+              onChange={(e: any) => {
                 setFilterGenreParam(e.target.value);
               }}
               className="genre-select"
@@ -73,7 +73,7 @@ function SearchForm() {
               <option value="Horror">Horror</option>
               <option value="Comedy">Comedy</option>
               <option value="Action">Action</option>
-              <option value="Drama">Drama<option>
+              <option value="Drama">Drama</option>
               <option value="Indie">Indie</option>
             </select>
           </label>
