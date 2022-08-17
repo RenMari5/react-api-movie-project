@@ -5,6 +5,7 @@ export type Movie = {
   overview: string;
   release_date: string;
   popularity: number;
+  genre_ids: number;
   // isOnWatchList?: boolean;
   // isFavorited?: boolean;
   //make underscores where necessary
