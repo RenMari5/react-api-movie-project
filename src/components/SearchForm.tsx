@@ -17,9 +17,9 @@ function SearchForm() {
     )
       .then((res) => res.data())
       .then(
-        (result) => {
+        (data) => {
           setIsLoaded(true);
-          setMovieList(result.data);
+          setMovieList(data);
         },
         (error) => {
           setError(error);
@@ -80,7 +80,7 @@ function SearchForm() {
               aria-label="Filter Movies by Genre"
             >
               <option value="All">Filter by Genre</option>
-              <option value="Romanic Comedy">Romantic Comedy</option>
+              <option value="Romantic Comedy">Romantic Comedy</option>
               <option value="Horror">Horror</option>
               <option value="Comedy">Comedy</option>
               <option value="Action">Action</option>
