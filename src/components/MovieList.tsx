@@ -4,6 +4,7 @@ import fetchMovies from "../services/movie.service";
 import { MovieContext } from "../context/MovieContext";
 import { MovieContextProvider } from "../context/MovieContextProvider";
 import { Movie } from "../types/movies";
+import MovieListItem from "./MovieListItem";
 
 export default function MovieOptions() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -14,5 +15,17 @@ export default function MovieOptions() {
     });
   }, []);
 
-  return <div>//map--where we are fetching all the data</div>;
+  return 
+    <div>//map--where we are fetching all the data
+
+        {/* {movies.map((movie) => {
+              return ( 
+              <MovieListItem 
+                  key={movie.id} 
+                  movie={movie}
+              />
+              )
+          })}
+          // auriel this is similar to code I've used before - do we want to use this? love, ken */}
+    </div>;
 }
