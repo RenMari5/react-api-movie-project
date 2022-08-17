@@ -15,11 +15,12 @@ export default function MovieOptions() {
     });
   }, []);
 
-  return;
-  <div>
-    //map--where we are fetching all the data
-    {movies.map((item, index) => (
-      <MovieListItem item={item} key={index} />
-    ))}
-  </div>;
+  return (
+    <div>
+      //map--where we are fetching all the data
+      {movies.map((item, index) => (
+        <MovieListItem item={item} key={index} />
+      ))}
+    </div>
+  );
 }

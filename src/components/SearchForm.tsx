@@ -1,6 +1,7 @@
 //search bar w three option of criteria to search by
 import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
+import axios from "axios";
 
 function SearchForm() {
   const [movieList, setMovieList] = useState([]);
@@ -11,17 +12,16 @@ function SearchForm() {
   const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
 
   useEffect(() => {
-    fetch(
+    axios(
       "https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}"
     )
-      .then((res) => res.json())
+      .then((res) => res.data())
       .then(
         (result) => {
           setIsLoaded(true);
-          setMovieList(result);
+          setMovieList(result.data);
         },
         (error) => {
-          setIsLoaded(true);
           setError(error);
         }
       );
@@ -29,24 +29,25 @@ function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    return movieList.filter((movie: Movie[]) => {
-      if (movie.genre_ids === filterGenreParam) {
-        return searchParam.some((newMovie: any) => {
-          return (
-            movie[newMovie]
-              .toString()
-              .toLowerCase()
-              .indexOf(searchTerm.toLowerCase()) > -1
-          );
-        });
-      } else if (filterGenreParam === "All") {
-        return searchParam.some((newMovie) => {
-            return (
-              movie[newMovie]
-                    .toString()
-                    .toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1
-    });
+    // return movieList.filter((movie: Movie[]) => {
+    //   if (movie.genre_ids === filterGenreParam) {
+    //     return searchParam.some((newMovie: any) => {
+    //       return (
+    //         movie[newMovie]
+    //           .toString()
+    //           .toLowerCase()
+    //           .indexOf(searchTerm.toLowerCase()) > -1
+    //       );
+    //     });
+    //   } else if (filterGenreParam == "All") {
+    //     return searchParam.some((newMovie) => {
+    //         return (
+    //           movie[newMovie]
+    //                 .toString()
+    //                 .toLowerCase()
+    //                 .indexOf(searchTerm.toLowerCase()) > -1
+    // });
+    clearSearchValues();
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
