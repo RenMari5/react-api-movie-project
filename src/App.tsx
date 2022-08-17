@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import SearchForm from "./components/SearchForm";
 import MovieList from "./components/MovieList";
