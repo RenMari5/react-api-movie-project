@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
 import axios from "axios";
+import {useSearchParams} from "react-router-dom"
 
 export function SearchForm() {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchParam] = useState(["id", "name"]);
+  const [searchParams, setSearchParams] = useSearchParams()
   const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
 
   useEffect(() => {
