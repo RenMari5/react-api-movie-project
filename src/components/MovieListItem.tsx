@@ -31,9 +31,7 @@ export const MovieListItem = ({ item }: Props) => {
     <div>
       <p>{item.title}</p>
       <p
-        onClick={() => {
-          useNavigate(goToDetails);
-        }}
+        onClick={goToDetails}
       >
         {item.poster_path}
       </p>
