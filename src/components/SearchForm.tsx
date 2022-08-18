@@ -3,14 +3,21 @@ import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import { stringify } from "querystring";
 
 export function SearchForm() {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const keys = ["genre_ids", "title", "poster_path"]
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
   const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
+  const search = (data: Movie[]) => {
+    return data.filter(
+      movie => keys.some(key => (movie: Movie)[key].includes(searchTerm))
+    )
+  }
 
   useEffect(() => {
     axios(
@@ -105,23 +112,27 @@ export function SearchForm() {
               <option value="Western">Western</option>
             </select>
           </label>
-          <input type="submit">Submit</input>
+          <input type="submit" value="Submit"/>
         </form>
       </div>
       <ul className="poster-grid">
-        {movieList.map((movie: Movie) => (
-          <li className="poster">{movie.poster_path}</li>
-          // <li>
-          //   <article className="poster" key={movie.id}>
-          //     <div className="poster-image">
-          //       <img src={movie.poster_path} alt={movie.title} />
-          //     </div>
-          //     <div className="movie">
-          //       <h2 className="movie-title">{movie.title}</h2>
-          //     </div>
-          //   </article>
-          // </li>
-        ))}
+        {movieList
+          .filter((movie: Movie) => movie.title)
+          .map((movie: Movie) => (
+            <li key={movie.id} className="poster">
+              {movie.title}{movie.poster_path}
+            </li>
+            // <li>
+            //   <article className="poster" key={movie.id}>
+            //     <div className="poster-image">
+            //       <img src={movie.poster_path} alt={movie.title} />
+            //     </div>
+            //     <div className="movie">
+            //       <h2 className="movie-title">{movie.title}</h2>
+            //     </div>
+            //   </article>
+            // </li>
+          ))}
       </ul>
     </div>
   );
