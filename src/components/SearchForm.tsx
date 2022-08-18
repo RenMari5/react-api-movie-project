@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
-import { stringify } from "querystring";
+
 
 export function SearchForm() {
   const [movieList, setMovieList] = useState([]);
@@ -20,19 +20,24 @@ export function SearchForm() {
   }
 
   useEffect(() => {
-    axios(
-      "https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}"
-    )
-      .then((res) => res.data())
-      .then(
-        (data) => {
-          setIsLoaded(true);
-          setMovieList(data);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+    // axios(
+    //   "https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}"
+    // )
+    //   .then((res) => res.data())
+    //   .then(
+    //     (data) => {
+    //       setIsLoaded(true);
+    //       setMovieList(data);
+    //     },
+    //     (error) => {
+    //       setError(error);
+    //     }
+    //   );
+    const fetchMovies = async () => {
+      const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}`)
+      movieList(res.data)
+    }
+    fetchMovies()
   }, []);
 
   function handleSubmit(e: React.FormEvent) {
