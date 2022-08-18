@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
 import axios from "axios";
 
-function SearchForm() {
+export function SearchForm() {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
@@ -47,7 +47,7 @@ function SearchForm() {
                     .toLowerCase()
                     .indexOf(searchTerm.toLowerCase()) > -1
     });
-    clearSearchValues();
+    // clearSearchValues();
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -122,4 +122,3 @@ function SearchForm() {
   );
 }
 
-export default SearchForm;
