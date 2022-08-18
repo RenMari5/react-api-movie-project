@@ -18,17 +18,15 @@ function App() {
         </div>
         
         <Routes>
-        <Route path='/' element={
-            <div>
-              <SearchForm />
-              <MovieList />
-            </div>
-          } />
-        <Route path='/favoriteslist' element={<FavoritesList />} />
-        <Route path='/watchlist' element={<WatchList />} />
-        <Route path='/details/:id' element={<MovieDetail />} />
-
-
+          <Route path='/' element={
+              <div>
+                <SearchForm />
+                <MovieList />
+              </div>
+            } />
+          <Route path='/favoriteslist' element={<FavoritesList />} />
+          <Route path='/watchlist' element={<WatchList />} />
+          <Route path='/details/:id' element={<MovieDetail />} />
         </Routes>
       </header>
     </div>

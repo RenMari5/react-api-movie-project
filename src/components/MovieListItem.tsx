@@ -4,6 +4,7 @@
 import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import { Movie } from "../types/movies";
+import { useNavigate } from 'react-router-dom'
 import MovieOptions from "./MovieList";
 
 interface Props {
@@ -11,8 +12,12 @@ interface Props {
 }
 
 export const MovieListItem = ({ item }: Props) => {
-  //i did change this component name to match the file name because I was getting confused with the difference, was can change it back tho if preferred! -ken
-  const navigate = useNavigate();
+  // const navigate = useNavigate()
+
+  function goToDetails () {
+    useNavigate(`/details/${item.id}`)
+  }
+
   const {
     moviesToWatch,
     moviesFavorited,
@@ -25,14 +30,10 @@ export const MovieListItem = ({ item }: Props) => {
   return (
     <div>
       <p>{item.title}</p>
-      <p>{item.poster_path}</p>
-      <button
-        onClick={() => {
-          // navigate(``);
-        }}
-      >
-        Show More
-      </button>
+      <p onClick={() => {useNavigate(goToDetails)}}>
+        {item.poster_path}
+      </p>
+
       {moviesFavorited.find((arrayItem) => arrayItem.id === item.id) ? (
         <button onClick={() => addMovieToFavList(item)}>favorited</button>
       ) : (

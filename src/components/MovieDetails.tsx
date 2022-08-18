@@ -13,7 +13,7 @@ export default function MovieDetail () {
     const { id } = useParams<RouteParams>();
     const { moviesToWatch, moviesFavorited, addMovieToFavList, addMovieToWatchList, removeMovieFromFavList, removeMovieFromWatchList } = useContext(MovieContext); //do we need to use MovieContextProvider?
     const [movies, setMovies] = useState<Movie[]>([]);
-    const movie: Movie = movies.find((movie) => movie.id === id);
+    const movie = movies.find((movie) => movie.id === id); // why is this acting like the type includes undefined?
 
     useEffect(() => {
       fetchMovies().then((movies) => {
