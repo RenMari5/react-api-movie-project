@@ -16,6 +16,7 @@ function App() {
           <Link to={`/favoriteslist}`}>Your Favorites List</Link>
           <Link to={`/watchlist}`}>Your Watch List</Link>
         </div>
+      </header>
         
         <Routes>
           <Route path='/' element={
@@ -28,7 +29,6 @@ function App() {
           <Route path='/watchlist' element={<WatchList />} />
           <Route path='/details/:id' element={<MovieDetail />} />
         </Routes>
-      </header>
     </div>
   );
 }
