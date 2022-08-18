@@ -2,14 +2,14 @@
 import React, { useEffect, useState } from "react";
 import { MovieResults, Movie } from "../types/movies";
 import axios from "axios";
-import {useSearchParams} from "react-router-dom"
+import { useSearchParams } from "react-router-dom";
 
 export function SearchForm() {
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams();
   const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
 
   useEffect(() => {
@@ -30,27 +30,30 @@ export function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    return movieList.filter((movie: Movie[]) => {
-      if (movie.genre_ids === filterGenreParam) {
-        return searchParams.filter((newMovie: any) => {
-          return (
-            movie[newMovie]
-              .toString()
-              .toLowerCase()
-              .indexOf(searchTerm.toLowerCase()) > -1
-          );
-        });
-      } else if (filterGenreParam == "All") {
-        return searchParams.filter((newMovie: any) => {
-            return (
-              movie[newMovie]
-                    .toString()
-                    .toLowerCase()
-                    .indexOf(searchTerm.toLowerCase()) > -1
-     ) 
-    });
-    // clearSearchValues();
+    // return movieList.filter((movie: Movie[]) => {
+    //   if (movie.genre_ids === filterGenreParam) {
+    //     return searchParams.filter((newMovie: any) => {
+    //       return (
+    //         movie[newMovie]
+    //           .toString()
+    //           .toLowerCase()
+    //           .indexOf(searchTerm.toLowerCase()) > -1
+    //       );
+    //     });
+    //   } else if (filterGenreParam == "All") {
+    //     return searchParams.filter((newMovie: any) => {
+    //         return (
+    //           movie[newMovie]
+    //                 .toString()
+    //                 .toLowerCase()
+    //                 .indexOf(searchTerm.toLowerCase()) > -1
+    //  )
+    // });
+    let params = serializeFormQuery(e.target);
+    clearSearchValues();
   }
+
+  function serializeFormQuery() {}
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     return setSearchTerm(e.target.value);
