@@ -29,24 +29,24 @@ function SearchForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // return movieList.filter((movie: Movie[]) => {
-    //   if (movie.genre_ids === filterGenreParam) {
-    //     return searchParam.some((newMovie: any) => {
-    //       return (
-    //         movie[newMovie]
-    //           .toString()
-    //           .toLowerCase()
-    //           .indexOf(searchTerm.toLowerCase()) > -1
-    //       );
-    //     });
-    //   } else if (filterGenreParam == "All") {
-    //     return searchParam.some((newMovie) => {
-    //         return (
-    //           movie[newMovie]
-    //                 .toString()
-    //                 .toLowerCase()
-    //                 .indexOf(searchTerm.toLowerCase()) > -1
-    // });
+    return movieList.filter((movie: Movie[]) => {
+      if (movie.genre_ids === filterGenreParam) {
+        return searchParam.some((newMovie: any) => {
+          return (
+            movie[newMovie]
+              .toString()
+              .toLowerCase()
+              .indexOf(searchTerm.toLowerCase()) > -1
+          );
+        });
+      } else if (filterGenreParam == "All") {
+        return searchParam.some((newMovie) => {
+            return (
+              movie[newMovie]
+                    .toString()
+                    .toLowerCase()
+                    .indexOf(searchTerm.toLowerCase()) > -1
+    });
     clearSearchValues();
   }
 
