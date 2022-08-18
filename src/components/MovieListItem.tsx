@@ -12,10 +12,10 @@ interface Props {
 }
 
 export const MovieListItem = ({ item }: Props) => {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   function goToDetails () {
-    useNavigate(`/details/${item.id}`)
+    navigate(`/details/${item.id}`)
   }
 
   const {
