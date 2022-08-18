@@ -32,7 +32,7 @@ export function SearchForm() {
     e.preventDefault();
     return movieList.filter((movie: Movie[]) => {
       if (movie.genre_ids === filterGenreParam) {
-        return searchParam.some((newMovie: any) => {
+        return searchParams.filter((newMovie: any) => {
           return (
             movie[newMovie]
               .toString()
@@ -41,7 +41,7 @@ export function SearchForm() {
           );
         });
       } else if (filterGenreParam == "All") {
-        return searchParam.some((newMovie) => {
+        return searchParams.filter((newMovie: any) => {
             return (
               movie[newMovie]
                     .toString()
