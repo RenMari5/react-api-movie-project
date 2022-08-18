@@ -8,7 +8,7 @@ export function SearchForm() {
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [searchParam] = useState([]);
+  const [searchParam] = useState(["id", "name"]);
   const [filterGenreParam, setFilterGenreParam] = useState(["All"]);
 
   useEffect(() => {
@@ -46,6 +46,7 @@ export function SearchForm() {
                     .toString()
                     .toLowerCase()
                     .indexOf(searchTerm.toLowerCase()) > -1
+     ) 
     });
     // clearSearchValues();
   }
