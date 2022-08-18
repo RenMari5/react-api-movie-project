@@ -109,17 +109,18 @@ export function SearchForm() {
         </form>
       </div>
       <ul className="poster-grid">
-        {movieList.map((movie: any) => (
-          <li>
-            <article className="poster" key={movie.id}>
-              <div className="poster-image">
-                <img src={movie.poster_path} alt={movie.title} />
-              </div>
-              <div className="movie">
-                <h2 className="movie-title">{movie.title}</h2>
-              </div>
-            </article>
-          </li>
+        {movieList.map((movie: Movie) => (
+          <li className="poster">{movie.poster_path}</li>
+          // <li>
+          //   <article className="poster" key={movie.id}>
+          //     <div className="poster-image">
+          //       <img src={movie.poster_path} alt={movie.title} />
+          //     </div>
+          //     <div className="movie">
+          //       <h2 className="movie-title">{movie.title}</h2>
+          //     </div>
+          //   </article>
+          // </li>
         ))}
       </ul>
     </div>
