@@ -11,9 +11,9 @@ export default function MovieDetail () {
     // onClick on poster in movie list to bring it to this page by id
     // <Link to={`/details/${item.id}`}>details</Link> on movie items to link to details page
     const { id } = useParams<RouteParams>();
-    const { moviesToWatch, moviesFavorited, addMovieToFavList, addMovieToWatchList, removeMovieFromFavList, removeMovieFromWatchList } = useContext(MovieContext);
+    const { moviesToWatch, moviesFavorited, addMovieToFavList, addMovieToWatchList, removeMovieFromFavList, removeMovieFromWatchList } = useContext(MovieContext); //do we need to use MovieContextProvider?
     const [movies, setMovies] = useState<Movie[]>([]);
-    const movie: Movie | undefined = movies.find((movie) => movie.id === id);
+    const movie: Movie = movies.find((movie) => movie.id === id);
 
     useEffect(() => {
       fetchMovies().then((movies) => {
@@ -22,7 +22,6 @@ export default function MovieDetail () {
       });
     }, []);
     
-    if (movie !== undefined) {
     return (
     <div className="MovieRoute">
         <p>{movie?.title}</p>
@@ -38,7 +37,6 @@ export default function MovieDetail () {
             <button onClick={() => removeMovieFromWatchList(id)}>favorited</button>} 
             </div>
     )
-        }
 
     function useParams<T>(): { id: any; } {
         throw new Error("Function not implemented.");

@@ -4,8 +4,6 @@ import { Movie } from "../types/movies";
 import { MovieListItem } from "./MovieListItem";
 
 export default function WatchList() {
-    //<Link to={`/favoriteslist}`}>Favorites List</Link>
-
   const { moviesFavorited } = useContext(MovieContext); //do we need to use MovieContextProvider?
 
   return (

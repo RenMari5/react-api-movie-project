@@ -8,6 +8,7 @@ export default function WatchList() {
 
   return (
   <div>
+      <h1>movies you want to watch:</h1>
     {moviesToWatch.map((movie: Movie) => (
       <MovieListItem item={movie} key={movie.id} />
       // do we want to remove fav and watch list buttons from MovieListItem and display them in map on list pages? 
