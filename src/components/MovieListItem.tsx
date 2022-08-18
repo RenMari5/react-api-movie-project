@@ -37,18 +37,14 @@ export const MovieListItem = ({ item }: Props) => {
       </p>
 
       {moviesFavorited.find((arrayItem) => arrayItem.id === item.id) ? (
-        <button onClick={() => addMovieToFavList(item)}>favorited</button>
+        <button onClick={() => addMovieToFavList(item)} value="add to favorites" />
       ) : (
-        <button onClick={() => removeMovieFromFavList(item.id)}>
-          favorited
-        </button>
+        <button onClick={() => removeMovieFromFavList(item.id)} value="remove from favorites" />
       )}
       {moviesToWatch.find((arrayItem) => arrayItem.id === item.id) ? (
-        <button onClick={() => addMovieToWatchList(item)}>favorited</button>
+        <button onClick={() => addMovieToWatchList(item)} value= "add to watch list" /> 
       ) : (
-        <button onClick={() => removeMovieFromWatchList(item.id)}>
-          favorited
-        </button>
+        <button onClick={() => removeMovieFromWatchList(item.id)} value="remove from watch list" />
       )}
       {/* lines 31-36 are the buttons for the watch and favorite list - ternary operator should judge if a movie is on the list or not and change button function accordingly */}
     </div>
