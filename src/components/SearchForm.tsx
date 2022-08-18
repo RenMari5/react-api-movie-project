@@ -49,7 +49,6 @@ export function SearchForm() {
     //                 .indexOf(searchTerm.toLowerCase()) > -1
     //  )
     // });
-    let params = serializeFormQuery(e.target);
     clearSearchValues();
   }
 
