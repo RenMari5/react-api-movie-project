@@ -4,7 +4,7 @@
 import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import { Movie } from "../types/movies";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import MovieOptions from "./MovieList";
 
 interface Props {
@@ -12,10 +12,10 @@ interface Props {
 }
 
 export const MovieListItem = ({ item }: Props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  function goToDetails () {
-    navigate(`/details/${item.id}`)
+  function goToDetails() {
+    navigate(`/details/${item.id}`);
   }
 
   const {
@@ -30,7 +30,11 @@ export const MovieListItem = ({ item }: Props) => {
   return (
     <div>
       <p>{item.title}</p>
-      <p onClick={() => {useNavigate(goToDetails)}}>
+      <p
+        onClick={() => {
+          useNavigate(goToDetails);
+        }}
+      >
         {item.poster_path}
       </p>
 
@@ -52,6 +56,3 @@ export const MovieListItem = ({ item }: Props) => {
     </div>
   );
 };
-function useNavigate() {
-  throw new Error("Function not implemented.");
-}
