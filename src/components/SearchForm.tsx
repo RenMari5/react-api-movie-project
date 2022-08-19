@@ -1,16 +1,16 @@
 //search bar w three option of criteria to search by
 import React, { useEffect, useState } from "react";
-import { MovieResults, Movie } from "../types/movies";
-import axios from "axios";
-import { useSearchParams } from "react-router-dom";
+// import { MovieResults, Movie } from "../types/movies";
+// import axios from "axios";
+// import { useSearchParams } from "react-router-dom";
 
 
 export function SearchForm() {
-  const [movieList, setMovieList] = useState([]);
+  // const [movieList, setMovieList] = useState([]);
   // const [searchTerm, setSearchTerm] = useState(""); // commenting this out because we're using 3 different search terms (lines 17-19) - love ken
-  const keys = ["genre_ids", "title", "poster_path"]
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const keys = ["genre_ids", "title", "poster_path"]
+  // const [error, setError] = useState(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
   // const [searchParams] = useSearchParams();
   // const [filterGenreParam, setFilterGenreParam] = useState(["All"]); // commenting out bcuz I think replaced with line 17, which may be a little cleaner? can change again - love ken
 
@@ -19,35 +19,37 @@ export function SearchForm() {
 	const [rating, setRating] = useState<number>(10);
 	const [title, setTitle] = useState<string>('');
 
-  const search = (data: Movie[]) => {
-    return data.filter(
-      movie => keys.some(key => (movie: Movie)[keys].includes(searchTerm))
-    )
-  }
+  // const search = (data: Movie[]) => {
+  //   return data.filter(
+  //     movie => keys.some(key => (movie: Movie)[keys].includes(searchTerm))
+  //   )
+  // } // moving this to 
 
-  useEffect(() => {
-    // axios(
-    //   "https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}"
-    // )
-    //   .then((res) => res.data())
-    //   .then(
-    //     (data) => {
-    //       setIsLoaded(true);
-    //       setMovieList(data);
-    //     },
-    //     (error) => {
-    //       setError(error);
-    //     }
-    //   );
+  // just gonna use the below codeblock in SearchResults.tsx - love ken
 
-    const fetchMovies = async () => {
-      const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}`)
-      setMovieList(res.data)
-    }
+  // useEffect(() => { 
+  //   // axios(
+  //   //   "https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}"
+  //   // )
+  //   //   .then((res) => res.data())
+  //   //   .then(
+  //   //     (data) => {
+  //   //       setIsLoaded(true);
+  //   //       setMovieList(data);
+  //   //     },
+  //   //     (error) => {
+  //   //       setError(error);
+  //   //     }
+  //   //   );
 
-    fetchMovies()
+  //   const fetchMovies = async () => {
+  //     const res = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${config.apiKey}`)
+  //     setMovieList(res.data)
+  //   }
 
-      }, []);
+  //   fetchMovies()
+
+  //     }, []);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -115,7 +117,7 @@ export function SearchForm() {
 						      onChange={(e) => setRating(parseInt(e.target.value))}
 						      // step="1" // this line was in some example code but idk if we need it - love ken
 					      />
-					      <label htmlFor="rating">Rating: (${rating})</label>
+					      <label htmlFor="rating">Rating up to: (${rating})</label>
 
                 <input
                   type="text" // changed type to 'text' from 'search' - love ken
@@ -130,7 +132,7 @@ export function SearchForm() {
                   onChange={(e: any) => setGenre(e.target.value)}
                   className="genre-select"
                   aria-label="Filter Movies by Genre"
-                >
+                > 
                     <option value="All">Filter by Genre</option>
                     <option value="Action">Action</option>
                     <option value="Adventure">Adventure</option>
@@ -151,6 +153,7 @@ export function SearchForm() {
                     <option value="Thriller">Thriller</option>
                     <option value="War">War</option>
                     <option value="Western">Western</option>
+                    {/* we need to set option values to the correct genre_id numbers */}
                 </select>
 
           </label>
@@ -159,7 +162,7 @@ export function SearchForm() {
         </form>
       </div>
 
-      <ul className="poster-grid">
+      {/* <ul className="poster-grid"> ****************** moving this to SearchResults as well
         {movieList
           .filter((movie: Movie) => movie.title)
           .map((movie: Movie) => (
@@ -177,7 +180,7 @@ export function SearchForm() {
             //   </article>
             // </li>
           ))}
-      </ul>
+      </ul> */}
 
     </div>
   );

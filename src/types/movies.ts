@@ -4,11 +4,8 @@ export type Movie = {
   poster_path: string;
   overview: string;
   release_date: string;
-  popularity: number;
-  genre_ids: number;
-  // isOnWatchList?: boolean;
-  // isFavorited?: boolean;
-  //make underscores where necessary
+  popularity: number; // is this the same as rating?
+  genre_ids: number; // I think this may be an array !!
 };
 
 export type MovieResults = {
