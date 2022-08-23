@@ -99,10 +99,10 @@ export function SearchForm() {
   }
 
   return (
-    <div className="wrapper">
+    <div className="SearchForm">
       <div className="search-wrapper">
         <form onSubmit={handleSubmit}>
-          <label>
+          <label className="searchTitle">
             Search Movies:
             <input
               type="range"
