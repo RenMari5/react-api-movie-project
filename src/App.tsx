@@ -11,24 +11,27 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="navbar">
-        <h1>Hey there, movie watcher!</h1>
+          <h1>Hey there, movie watcher! Welcome to the ARK Movie Database!</h1>
           <Link to={`/`}>Home</Link>
           <Link to={`/favoriteslist}`}>Your Favorites List</Link>
           <Link to={`/watchlist}`}>Your Watch List</Link>
         </div>
       </header>
-        
-        <Routes>
-          <Route path='/' element={
-              <div>
-                <SearchForm />
-                <MovieList />
-              </div>
-            } />
-          <Route path='/favoriteslist' element={<FavoritesList />} />
-          <Route path='/watchlist' element={<WatchList />} />
-          <Route path='/details/:id' element={<MovieDetail />} />
-        </Routes>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div>
+              <SearchForm />
+              <MovieList />
+            </div>
+          }
+        />
+        <Route path="/favoriteslist" element={<FavoritesList />} />
+        <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/details/:id" element={<MovieDetail />} />
+      </Routes>
     </div>
   );
 }

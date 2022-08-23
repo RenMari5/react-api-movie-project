@@ -129,25 +129,25 @@ export function SearchForm() {
               aria-label="Filter Movies by Genre"
             >
               <option value="All">Filter by Genre</option>
-              <option value="Action">Action</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Animation">Animation</option>
-              <option value="Comedy">Comedy</option>
-              <option value="Crime">Crime</option>
-              <option value="Documentary">Documentary</option>
-              <option value="Drama">Drama</option>
-              <option value="Family">Family</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="History">History</option>
-              <option value="Horror">Horror</option>
-              <option value="Music">Music</option>
-              <option value="Mystery">Mystery</option>
-              <option value="Romance">Romance</option>
-              <option value="Science Fiction">Science Fiction</option>
-              <option value="TV Movie">TV Movie</option>
-              <option value="Thriller">Thriller</option>
-              <option value="War">War</option>
-              <option value="Western">Western</option>
+              <option value="Action">Action (28)</option>
+              <option value="Adventure">Adventure (12)</option>
+              <option value="Animation">Animation (16)</option>
+              <option value="Comedy">Comedy (35)</option>
+              <option value="Crime">Crime (80)</option>
+              <option value="Documentary">Documentary (99)</option>
+              <option value="Drama">Drama (18)</option>
+              <option value="Family">Family (10751)</option>
+              <option value="Fantasy">Fantasy (14)</option>
+              <option value="History">History (36)</option>
+              <option value="Horror">Horror (27)</option>
+              <option value="Music">Music (10402)</option>
+              <option value="Mystery">Mystery (9648)</option>
+              <option value="Romance">Romance (10749)</option>
+              <option value="Science Fiction">Science Fiction (878)</option>
+              <option value="TV Movie">TV Movie (10770)</option>
+              <option value="Thriller">Thriller (53)</option>
+              <option value="War">War (10752)</option>
+              <option value="Western">Western (37)</option>
               {/* we need to set option values to the correct genre_id numbers */}
             </select>
           </label>
