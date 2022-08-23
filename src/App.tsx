@@ -11,10 +11,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="navbar">
-          <h1>Hey there, movie watcher! Welcome to the ARK Movie Database!</h1>
-          <Link to={`/`}>Home</Link>
-          <Link to={`/favoriteslist}`}>Your Favorites List</Link>
-          <Link to={`/watchlist}`}>Your Watch List</Link>
+          <h1 className="Title">
+            Hey there, Movie Watcher! Welcome to the ARK Movie Database!
+          </h1>
+          <Link to={`/`} className="navlinks">
+            Home
+          </Link>
+          <Link to={`/favoriteslist}`} className="navlinks">
+            Your Favorites List
+          </Link>
+          <Link to={`/watchlist}`} className="navlinks">
+            Your Watch List
+          </Link>
         </div>
       </header>
 
