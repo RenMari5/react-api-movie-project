@@ -1,0 +1,20 @@
+div {
+    margin: 10px;
+}
+img {
+    padding: 10px;
+}
+
+button {
+    height: 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #4056a1;
+    color: #4056a1;
+    font-weight: bold;
+    background-color: #c5cbe3;
+}
+
+button:active {
+    background-color: #4056a1;
+}

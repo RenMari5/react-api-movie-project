@@ -1,7 +1,7 @@
 import { Movie } from "../types/movies";
 import { useContext, useState, useEffect } from "react";
 import { MovieContext } from "../context/MovieContext";
-import { fetchMovie } from "../services/movie.service";
+import { fetchMovies } from "../services/movie.service";
 import { useParams } from "react-router-dom";
 
 interface MovieDetailProps {
@@ -24,11 +24,11 @@ export default function MovieDetail({ children }: MovieDetailProps) {
   const movie = movies.find((movie) => movie.id === Number(id));
 
   useEffect(() => {
-    fetchMovie(id as string).then((movies) => {
+    fetchMovies().then((movies) => {
       console.log(movies);
       setMovies(movies);
     });
-  }, [id]);
+  }, []);
 
   return (
     <div>
@@ -36,7 +36,7 @@ export default function MovieDetail({ children }: MovieDetailProps) {
       {movie !== undefined ? (
         <div className="MovieRoute">
           <p>{movie.title}</p>
-          <img src={movie.poster_path} alt={`${movie.title} poster`} />
+          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={`${movie.title} poster`} />
           <p>{movie.overview}</p>
           <p>Released: {movie.release_date}</p>
           <p>Popularity: ${movie.popularity}</p>

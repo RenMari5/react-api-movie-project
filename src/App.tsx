@@ -2,7 +2,6 @@ import "./App.css";
 import { SearchForm } from "./components/SearchForm";
 import MovieList from "./components/MovieList";
 import { Link, Route, Routes } from "react-router-dom";
-import FavoritesList from "./components/FavoritesList";
 import WatchList from "./components/WatchList";
 import MovieDetail from "./components/MovieDetails";
 
@@ -17,10 +16,7 @@ function App() {
           <Link to={`/`} className="navlinks">
             Home
           </Link>
-          <Link to={`/favoriteslist}`} className="navlinks">
-            Your Favorites List
-          </Link>
-          <Link to={`/watchlist}`} className="navlinks">
+          <Link to={`/watchlist`} className="navlinks">
             Your Watch List
           </Link>
         </div>
@@ -36,7 +32,6 @@ function App() {
             </div>
           }
         />
-        <Route path="/favoriteslist" element={<FavoritesList />} />
         <Route path="/watchlist" element={<WatchList />} />
         <Route path="/details/:id" element={<MovieDetail />} />
       </Routes>

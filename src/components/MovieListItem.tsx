@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import { Movie } from "../types/movies";
 import { useNavigate } from "react-router-dom";
+import "../css/MovieListItem.css";
+
 
 interface Props {
   item: Movie;
@@ -28,24 +30,10 @@ export const MovieListItem = ({ item }: Props) => {
 
   return (
     <div>
-      <p>{item.title}</p>
-      <p
-        onClick={goToDetails}
-      >
-        <img src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} alt="poster" />
-      </p>
-
-      {moviesFavorited.find((arrayItem) => arrayItem.id === item.id) ? (
-        <button onClick={() => addMovieToFavList(item)} value="add to favorites" />
-      ) : (
-        <button onClick={() => removeMovieFromFavList(item.id)} value="remove from favorites" />
-      )}
-      {moviesToWatch.find((arrayItem) => arrayItem.id === item.id) ? (
-        <button onClick={() => addMovieToWatchList(item)} value= "add to watch list" /> 
-      ) : (
-        <button onClick={() => removeMovieFromWatchList(item.id)} value="remove from watch list" />
-      )}
-      {/* lines 31-36 are the buttons for the watch and favorite list - ternary operator should judge if a movie is on the list or not and change button function accordingly */}
+      <p onClick={goToDetails}>{item.title}</p>
+        <img onClick={goToDetails} src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} alt="poster" />
+        <button onClick={() => addMovieToWatchList(item)}>add to watch list</button> 
+        <button onClick={() => removeMovieFromWatchList(item.id)}>remove from watch list</button>
     </div>
   );
 };

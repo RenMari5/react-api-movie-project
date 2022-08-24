@@ -1,0 +1,13 @@
+.MovieList {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: xx-large;
+  text-align: center;
+  text-shadow: 2px 2px #c5cbe3;
+  color: #4056a1;
+}

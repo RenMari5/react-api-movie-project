@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { fetchMovies } from "../services/movie.service";
 import { Movie } from "../types/movies";
 import { MovieListItem } from "./MovieListItem";
-import "./MovieList.css";
+import "../css/MovieList.css";
 
 export default function MovieOptions() {
   const [movies, setMovies] = useState<Movie[]>([]);

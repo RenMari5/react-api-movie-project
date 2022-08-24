@@ -1,6 +1,6 @@
 //search bar w three option of criteria to search by
 import React, { useEffect, useState } from "react";
-import "./SearchForm.css";
+import "../css/SearchForm.css";
 
 export function SearchForm() {
   const [genre, setGenre] = useState<number>();
@@ -12,6 +12,7 @@ export function SearchForm() {
     const queryStringParams: any = {};
     if (genre) {
       queryStringParams.genre = genre;
+      console.log(genre)
     }
     if (rating) {
       queryStringParams.rating = rating;
