@@ -152,7 +152,7 @@ export function SearchForm() {
             </select>
           </label>
 
-          <input type="submit" value="Submit" />
+          <button className="submitButton">Action!</button>
         </form>
       </div>
 
