@@ -6,6 +6,7 @@ export type Movie = {
   release_date: string;
   popularity: number; // is this the same as rating?
   genre_ids: number; // I think this may be an array !!
+  vote_average: number;
 };
 
 export type MovieResults = {

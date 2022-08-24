@@ -16,27 +16,34 @@ export default function MovieOptions() {
     });
   }, []);
 
-  let filteredMovies = [...movies];
+  let filteredMovies: Movie[] = movies;
 
-  console.log(filteredMovies);
+  console.log('filteredMovies:' + filteredMovies);
 
-//   if (query.get("genre")) {
-//     console.log(query.get("genre"));
-//     filteredMovies = filteredMovies.filter(
-//       (movie) => movie.genre_ids.includes(query.get("genre")!) // this is throwing an error becuase movies.tsx has genre type set as a number, we can set the option values in SearchForm to id numbers corresponding to genre names to resolve this error
-//     );
-//   }
+  if (query.get("genre")) {
+    console.log(query.get("genre"));
+      filteredMovies = filteredMovies.filter(
+        (movie) => {
+          let idsArray = movie.genre_ids;
+          // idsArray.includes(query.get("genre")!)
+        })
+    console.log('genre filter:' + query.get("genre") + filteredMovies);
+  }
+
   if (query.get("rating")) {
     console.log(query.get("rating"));
     filteredMovies = filteredMovies.filter(
-      (movie) => movie.popularity < parseInt(query.get("rating")!)
+      (movie) => movie.vote_average <= parseInt(query.get("rating")!)
     );
+    console.log('rating filter:' + query.get("rating") + filteredMovies);
   }
+
   if (query.get("title")) {
     console.log(query.get("title"));
     filteredMovies = filteredMovies.filter((movie) =>
       movie.title.toLowerCase().includes(query.get("title")!)
     );
+    console.log('title filter:' + query.get("title") + filteredMovies);
   }
 
   return (
