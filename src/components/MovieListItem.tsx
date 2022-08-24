@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { MovieContext } from "../context/MovieContext";
 import { Movie } from "../types/movies";
 import { useNavigate } from "react-router-dom";
-import MovieOptions from "./MovieList";
 
 interface Props {
   item: Movie;
@@ -33,7 +32,7 @@ export const MovieListItem = ({ item }: Props) => {
       <p
         onClick={goToDetails}
       >
-        {item.poster_path}
+        <img src={`https://image.tmdb.org/t/p/w200/${item.poster_path}`} alt="poster" />
       </p>
 
       {moviesFavorited.find((arrayItem) => arrayItem.id === item.id) ? (

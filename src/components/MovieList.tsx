@@ -20,12 +20,12 @@ export default function MovieOptions() {
 
   console.log(filteredMovies);
 
-  if (query.get("genre")) {
-    console.log(query.get("genre"));
-    filteredMovies = filteredMovies.filter(
-      (movie) => movie.genre_ids.includes(query.get("genre")!) // this is throwing an error becuase movies.tsx has genre type set as a number, we can set the option values in SearchForm to id numbers corresponding to genre names to resolve this error
-    );
-  }
+//   if (query.get("genre")) {
+//     console.log(query.get("genre"));
+//     filteredMovies = filteredMovies.filter(
+//       (movie) => movie.genre_ids.includes(query.get("genre")!) // this is throwing an error becuase movies.tsx has genre type set as a number, we can set the option values in SearchForm to id numbers corresponding to genre names to resolve this error
+//     );
+//   }
   if (query.get("rating")) {
     console.log(query.get("rating"));
     filteredMovies = filteredMovies.filter(
