@@ -1,0 +1,40 @@
+.SearchForm .search-form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.SearchForm header {
+  font-size: x-large;
+  font-weight: 600;
+  color: #4056a1;
+  text-shadow: 2px 2px #c5cbe3;
+}
+
+.SearchForm label {
+  font-weight: 500;
+  color: #4056a1;
+}
+
+.SearchForm select {
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.SearchForm .searchRadio {
+  margin-bottom: 10px;
+}
+
+.SearchForm .search-input {
+  border-radius: 5px;
+}
+
+.SearchForm .submitButton {
+  border-radius: 5px;
+  border: 1px solid #4056a1;
+  color: #4056a1;
+  font-weight: bold;
+  background-color: #c5cbe3;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
